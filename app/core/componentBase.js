@@ -16,10 +16,10 @@ export class ComponentBase extends HTMLElement {
         return this._templates[path];
     }
 
-    async setup(renderFn, wireFn, dataFn) {
+    async setup(dataFn, renderFn, wireFn) {
+        await dataFn?.();
         await renderFn?.();
         await wireFn?.();
-        await dataFn?.();
     }
 
     populateTemplate(template, values) {

@@ -1,5 +1,7 @@
 import { ComponentBase } from "./componentBase.js";
 
+import "../components/error-view.js";
+
 export class PageBase extends ComponentBase {
     constructor() {
         super();
@@ -7,11 +9,24 @@ export class PageBase extends ComponentBase {
     }
 
     async connectedCallback() {
-        await this.setup(
-            () => this.loadData(),
-            () => this.render(),
-            () => this.wireEvents()
-        );
+        try {
+            await this.setup(
+                () => this.loadData(),
+                () => this.render(),
+                () => this.wireEvents()
+            );
+        } catch (error) {
+            console.error("Page error:", error);
+
+            this.error = error;
+            this.showError();
+        }
+    }
+
+    showError() {
+        const errorView = document.createElement("error-view");
+
+        this.replaceChildren(errorView);
     }
 
     async render() {

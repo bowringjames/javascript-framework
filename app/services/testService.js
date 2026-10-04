@@ -4,6 +4,6 @@ export class TestService {
     }
 
     async getPayment() {
-        return await this.apiClient.get("/payment");
+        return await this.apiClient.get("/payment/not-found");
     }
 }

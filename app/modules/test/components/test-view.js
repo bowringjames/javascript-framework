@@ -21,7 +21,6 @@ export class TestView extends PageBase {
 
     async loadData() {
         const testService = this.app.get("testService");
-
         this.payment = await testService.getPayment();
     }
 
@@ -29,7 +28,7 @@ export class TestView extends PageBase {
         return {
             jobNumber: this.payment?.payment.jobNumber,
             amount: this.payment?.payment.amount,
-            currency: this.payment?.payment.current,
+            currency: this.payment?.payment.currency,
             customerName: this.payment?.customer.name,
             customerEmail: this.payment?.customer.email,
             status: this.payment?.status

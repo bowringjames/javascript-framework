@@ -232,6 +232,46 @@ The page can therefore concentrate on what it needs to display rather than imple
 
 ---
 
+## Error Handling
+
+The framework distinguishes between **unexpected errors** and **expected application outcomes**.
+
+Unexpected errors, such as an API failure or an unexpected exception during page loading, are handled by `PageBase`.
+
+```text
+Page
+  ↓
+loadData()
+  ↓
+Service
+  ↓
+ApiClient
+  ↓
+Exception
+  ↓
+PageBase
+  ↓
+Error View
+```
+
+This means individual pages do not need to repeat the same error-handling code.
+
+Error presentation is kept separate from the page lifecycle so that the appearance and wording of an error can be changed without modifying the framework's core page-handling code.
+
+Not every failure is necessarily an exception.
+
+For example, a payment being declined is an expected outcome of a payment operation rather than an application crash. Such outcomes can be handled by the relevant application service or module and presented appropriately to the user.
+
+The framework therefore aims to distinguish between:
+
+- **Unexpected errors** — handled by common framework error handling.
+- **Expected application outcomes** — handled by the relevant application functionality.
+- **User validation** — handled by the relevant UI.
+
+Logging and user-facing error messages are treated as separate concerns. Technical information may be useful for logging without necessarily being appropriate to display to the user.
+
+---
+
 ## Current Demonstration
 
 The current demonstration application contains a small **Test module**.

@@ -6,6 +6,10 @@ export class ApiClient {
             setTimeout(resolve, 500);
         });
 
+        if (url === "/payment/not-found") {
+            throw new Error("Payment not found");
+        }
+
         return {
             payment: {
                 jobNumber: "12345",
