@@ -6,7 +6,6 @@ export class Router {
     }
 
     start() {
-        // Shouldn't this be in my EventBus?
         window.addEventListener("popstate", () => this.resolve());
         this.resolve();
     }
