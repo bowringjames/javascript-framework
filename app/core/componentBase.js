@@ -8,6 +8,7 @@ export class ComponentBase extends HTMLElement {
     }
 
     async loadTemplate(path) {
+        console.log(path);
         if (!this._templates[path]) {
             const response = await fetch(`${path}?v=${Date.now()}`);
             this._templates[path] = await response.text();

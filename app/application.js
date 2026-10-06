@@ -6,7 +6,7 @@ import { Navigation } from "./core/navigation.js";
 import { RouteResolver } from "./core/routeResolver.js";
 import { RouteRegistry } from "./core/routeRegistry.js";
 
-import "./components/app-view.js";
+import "./ui/app/components/app-view.js";
 
 import { ApiClient } from "./services/apiClient.js";
 import { TestService } from "./services/testService.js";

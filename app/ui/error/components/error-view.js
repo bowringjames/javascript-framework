@@ -1,10 +1,10 @@
-import { ComponentBase } from "../core/componentBase.js";
+import { ComponentBase } from "../../../core/componentBase.js";
 
 export class ErrorView extends ComponentBase {
     constructor() {
         super();
 
-        this.templatePath = "/app/components/error.html";
+        this.templatePath = "/app/ui/error/templates/error.html";
     }
 
     async connectedCallback() {

@@ -1,4 +1,4 @@
-import { ComponentBase } from "../core/componentBase.js";
+import { ComponentBase } from "../../../core/componentBase.js";
 
 export class AppView extends ComponentBase {
     connectedCallback() {

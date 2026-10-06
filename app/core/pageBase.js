@@ -1,6 +1,6 @@
 import { ComponentBase } from "./componentBase.js";
 
-import "../components/error-view.js";
+import "../ui/error/components/error-view.js";
 
 export class PageBase extends ComponentBase {
     constructor() {
